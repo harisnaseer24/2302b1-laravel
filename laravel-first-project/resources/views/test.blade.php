@@ -1,3 +1,20 @@
+@php
+$name="haris naseer" ;
+$age=23;
+$person=[
+   "haris"=> [
+    "name"=>"Haris",
+    "age"=>23,
+    "occupation"=>"Teaching and Development"],
+
+    "waleed"=>[
+    "name"=>"Waleed waseem",
+    "age"=>19,
+    "occupation"=>"teaching"
+
+    ]
+]
+@endphp
 <!doctype html>
 <html lang="en">
     <head>
@@ -24,11 +41,23 @@
         </header>
         <main>
 
-            <div class="container">
-                <h1>Welcome {{ $name }}, you are login with {{ $email }}.</h1>
-                {{-- <a href="/signup" class="btn btn-success text-center my-2">SIGNUP</a>
-                <a href="/login" class="btn btn-success text-center my-2">LOGIN</a> --}}
-            </div>
+            <h1>{{ $name}} you are {{$age}} years old.</h1>
+
+@if($age == 23)
+<h2>You are {{ $age }} years old. Welcome to our elite commity.</h2>
+@else 
+<h2>You are Welcome to our leaders commity.</h2>
+@endif
+
+@foreach ($person as $key=> $value)
+<h1>{{ ucwords($key) }}'s Data:</h1>
+@foreach($value as $key2=>$value2)
+
+<h1>{{$key2}} : {{$value2}}</h1>
+
+@endforeach
+<br>
+@endforeach
 
 
         </main>
