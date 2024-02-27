@@ -28,7 +28,7 @@
                 <div class="col-md-10 mx-auto">
                    @if ($status=Session::get('success'))
                        <div
-                        class="alert alert-success alert-dismissible fade show"
+                        class="alert alert-primary alert-dismissible fade show"
                         role="alert"
                        >
                         <button
@@ -42,26 +42,26 @@
                        </div>
                        
                    @endif
-                    <h1 class="text-center text-success display-2">Register Now as a Student</h1>
-                    <form action="/createstudent" method="post" enctype="multipart/form-data">
+                    <h1 class="text-center text-success display-2">Edit Details of "{{ $student['username'] }}"</h1>
+                    <form action="/editstudent/{{ $student['id'] }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" class="form-control my-3  " placeholder="username" name="username" value="{{ old('username')}}">
+                        <input type="text" class="form-control my-3  " placeholder="username" name="username" value="{{ old('username',$student['username'])}}">
                         @error('username')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
-                        <input type="email" class="form-control my-3  " placeholder="email" name="email" value="{{ old('email')}}">
+                        <input type="email" class="form-control my-3  " placeholder="email" name="email" value="{{ old('email',$student['email'])}}">
                          @error('email')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
-                        <input type="number" class="form-control my-3  " placeholder="contact" name="contact" value="{{ old('contact')}}">
+                        <input type="number" class="form-control my-3  " placeholder="contact" name="contact" value="{{ old('contact',$student['contact'])}}">
                          @error('contact')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
-                        <input type="text" class="form-control my-3  " placeholder="city" name="city" value="{{ old('city')}}">
+                        <input type="text" class="form-control my-3  " placeholder="city" name="city" value="{{ old('city',$student['city'])}}">
                          @error('city')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
-                        <input type="file" class="form-control my-3  " placeholder="image" name="image" value="{{ old('image')}}">
+                        <input type="file" class="form-control my-3  " placeholder="image" name="image" value="{{ old('image',$student['image'])}}">
                          @error('image')
                         <span class="text-danger">{{$message}}</span>
                         @enderror

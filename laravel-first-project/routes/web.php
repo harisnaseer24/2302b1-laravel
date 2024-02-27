@@ -17,8 +17,11 @@ use App\Http\Controllers\StudentController;
 
 Route::get('/', [StudentController::class,'welcome']);
 Route::get('/registerstudent', [StudentController::class,'registerStudent']);
-
-Route::post('/createstudent', [StudentController::class,'createstudent']);
+Route::get('/students', [StudentController::class,'getStudents']);
+Route::post('/createstudent', [StudentController::class,'createStudent']);
+Route::get('/deletestudent/{id}', [StudentController::class,'deleteStudent']);
+Route::get('/editstudent/{id}', [StudentController::class,'editStudent']);
+Route::post('/editstudent/{id}', [StudentController::class,'updateStudentDetails']);
 
 
 
